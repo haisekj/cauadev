@@ -1,0 +1,247 @@
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-large);
+}
+
+.homeContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-large);
+  align-items: center;
+}
+
+.homeData {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.homeTitle {
+  font-size: var(--font-size-h1);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+  }
+}
+
+.homeSubtitle {
+  font-size: var(--font-size-h3);
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  min-height: 2.5rem;
+}
+
+/* Added cursor animation for typing effect */
+.cursor {
+  display: inline-block;
+  margin-left: 3px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.homeDescription {
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.homeButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.buttonSecondary {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  border: 2px solid var(--text-color);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1rem 2rem;
+  border-radius: 50px; /* Made both buttons have the same rounded style */
+  font-weight: var(--font-weight-semibold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.buttonSecondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.buttonSecondary:hover::before {
+  left: 100%;
+}
+
+/* Updated hover animation to match Contact Me button */
+.buttonSecondary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--bg-color);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(255, 255, 255, 0.3);
+}
+
+.homeImg {
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeImg img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+  animation: morph 8s ease-in-out infinite, float 6s ease-in-out infinite;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* Removed hover effects */
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% {
+    border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+  }
+  75% {
+    border-radius: 60% 40% 60% 40% / 70% 30% 50% 60%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .homeContent {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .homeImg {
+    order: -1;
+  }
+
+  .homeImg img {
+    width: 280px;
+    height: 280px;
+  }
+
+  .homeButtons {
+    justify-content: center;
+  }
+
+  /* Added mobile-specific styles */
+  .homeTitle {
+    font-size: 2rem;
+  }
+
+  .homeSubtitle {
+    font-size: 1.25rem;
+  }
+
+  .homeDescription {
+    font-size: 0.95rem;
+  }
+}
+
+/* Added styles for small screens */
+@media screen and (max-width: 480px) {
+  .homeTitle {
+    font-size: 1.75rem;
+  }
+
+  .homeSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .homeDescription {
+    font-size: 0.9rem;
+  }
+
+  .homeImg img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .buttonSecondary {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Added styles for large monitors */
+@media screen and (min-width: 1400px) {
+  .homeContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .homeTitle {
+    font-size: 3.5rem;
+  }
+
+  .homeSubtitle {
+    font-size: 2rem;
+  }
+
+  .homeDescription {
+    font-size: 1.15rem;
+  }
+
+  .homeImg img {
+    width: 420px;
+    height: 420px;
+  }
+}

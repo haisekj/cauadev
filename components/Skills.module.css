@@ -1,0 +1,144 @@
+.skills {
+  background-color: var(--bg-color);
+}
+
+.skillsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--gap-medium);
+}
+
+.skillsCard {
+  background: var(--container-color);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skillsCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(255, 255, 255, 0.1);
+}
+
+.skillsHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Added rotation and glow animation to skill icons */
+.skillsIcon {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+.skillsCard:hover .skillsIcon {
+  transform: scale(1.15) rotate(360deg);
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.6));
+}
+
+.skillsTitle {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+.skillsBar {
+  background-color: rgba(255, 255, 255, 0.08);
+  height: 10px;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.skillsPercentage {
+  background: linear-gradient(90deg, var(--text-color) 0%, rgba(255, 255, 255, 0.7) 100%);
+  height: 100%;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.5rem;
+  transition: width 1s ease;
+  position: relative;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+.skillsNumber {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color);
+  background: var(--container-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .skillsContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .skillsCard {
+    padding: 1.75rem;
+  }
+
+  .skillsIcon {
+    font-size: 2.25rem;
+  }
+
+  /* Added tablet-specific styles */
+  .skillsTitle {
+    font-size: 1.15rem;
+  }
+}
+
+/* Added styles for small screens */
+@media screen and (max-width: 480px) {
+  .skillsCard {
+    padding: 1.5rem;
+  }
+
+  .skillsIcon {
+    font-size: 2rem;
+  }
+
+  .skillsTitle {
+    font-size: 1.1rem;
+  }
+
+  .skillsNumber {
+    font-size: 0.85rem;
+    padding: 0.2rem 0.6rem;
+  }
+}
+
+/* Added styles for large monitors */
+@media screen and (min-width: 1400px) {
+  .skillsContainer {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .skillsCard {
+    padding: 2.5rem;
+  }
+
+  .skillsIcon {
+    font-size: 3rem;
+  }
+
+  .skillsTitle {
+    font-size: 1.35rem;
+  }
+}
